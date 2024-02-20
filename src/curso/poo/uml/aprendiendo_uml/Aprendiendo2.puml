@@ -1,0 +1,50 @@
+@startuml
+
+!define CLASS_ATTRIBUTES - id: int\n  # nombre: String\n  ~ edad: int
+!define CLASS_METHODS + obtenerId(): int\n  + establecerNombre(nombre: String): void\n  ~ calcularEdad(): int
+
+class Persona {
+  !define PERSONA_ATTRIBUTES CLASS_ATTRIBUTES
+  !define PERSONA_METHODS CLASS_METHODS
+  PERSONA_ATTRIBUTES
+  PERSONA_METHODS
+}
+
+class Estudiante {
+  !define ESTUDIANTE_ATTRIBUTES CLASS_ATTRIBUTES\n  - matricula: int\n  - calificaciones: List<int>\n  # programaEstudio: String
+  !define ESTUDIANTE_METHODS CLASS_METHODS\n  + obtenerMatricula(): int\n  + obtenerCalificaciones(): List<int>\n  ~ obtenerPromedio(): double
+  ESTUDIANTE_ATTRIBUTES
+  ESTUDIANTE_METHODS
+}
+
+class Profesor {
+  !define PROFESOR_ATTRIBUTES CLASS_ATTRIBUTES\n  - empleadoId: int\n  - especialidad: String\n  # salario: double
+  !define PROFESOR_METHODS CLASS_METHODS\n  + obtenerEmpleadoId(): int\n  + obtenerEspecialidad(): String\n  - calcularBonificacion(): double
+  PROFESOR_ATTRIBUTES
+  PROFESOR_METHODS
+}
+
+class Curso {
+  - codigo: String
+  - nombre: String
+  + obtenerCodigo(): String
+  + obtenerNombre(): String
+}
+
+Persona --|> Estudiante : Herencia
+Persona --|> Profesor : Herencia
+Estudiante -- Profesor : Asociación
+Estudiante -- Curso : Asociación
+Profesor --|> Curso : Asociación
+
+note "Clase base para personas" as PersonaNote
+note "Representa a un estudiante con matrícula y calificaciones" as EstudianteNote
+note "Representa a un profesor con un ID de empleado y especialidad" as ProfesorNote
+note "Representa un curso con código y nombre" as CursoNote
+
+PersonaNote .. Persona
+EstudianteNote .. Estudiante
+ProfesorNote .. Profesor
+CursoNote .. Curso
+
+@enduml

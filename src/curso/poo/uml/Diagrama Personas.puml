@@ -1,0 +1,27 @@
+@startuml
+
+class Persona{
+    -private String dni
+    -private String nombre
+    -private String apellido
+
+    +public Persona(String dni, String nombre, String apellido)
+}
+
+class Asalariado{
+    -private double sueldo
+
+    +public Asalariado(String dni, String nombre, String apellido, double sueldo)
+}
+
+class Autonomo{
+    -private double facturacion
+
+    +public Autonomo(String dni, String nombre, String apellido, double facturacion)
+}
+
+Persona <|-- Asalariado : "Hereda los atributos de Persona"
+Persona <|-- Autonomo : "y esta tambien"
+
+
+@enduml

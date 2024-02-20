@@ -1,0 +1,49 @@
+@startuml
+
+class Trivial {
+}
+
+class Tablero {
+}
+
+class Jugador {
+}
+
+class Quesito {
+}
+
+class Casilla {
+}
+
+class Dado {
+}
+
+class Turno {
+}
+
+enum Categoria {
+}
+
+class Pregunta {
+}
+
+enum Color{
+}
+
+Trivial --* " 2-6" Jugador
+Trivial --* Tablero
+Trivial --* Pregunta
+
+
+Jugador -- Dado
+Jugador -- Turno
+Jugador --* Quesito
+
+Quesito --* Color
+Tablero --* Dado
+Tablero --* Casilla
+Pregunta --* Categoria
+Categoria -- Color
+Casilla -- Categoria
+
+@enduml

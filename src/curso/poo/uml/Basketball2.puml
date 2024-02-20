@@ -1,0 +1,31 @@
+@startuml
+
+package curso.poo.basketball {
+
+  class BasketballPlayer {
+    - static random: Random
+    - name: String
+    - lastName: String
+    - basket: int
+    - rebound: int
+    - dateOfBirth: LocalDate
+    - assistance: int
+    - position: Position
+    + generateRandomDate(): LocalDate
+    + generateRandomBasket(): int
+    + generateRandomRebound(): int
+    + generateRandomAssistance(): int
+    + generateRandomPosition(): Position
+    + BasketballPlayer(name: String, lastName: String)
+    + toString(): String
+  }
+
+  enum Position {
+    BASE, ESCOLTA, ALERO, ALA_PIVOT, PIVOT
+  }
+
+  BasketballPlayer --o Position
+
+}
+
+@enduml

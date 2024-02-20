@@ -1,0 +1,57 @@
+@startuml
+
+class Persona {
+  '// - PRIVADO / + PUBLICO / ~ PAQUETE / # PROTEGIDO
+  {static} - id: int
+  # nombre: String
+  ~ edad: int
+  - genero: String
+
+  {Abstract} + obtenerId(): int
+  + establecerNombre(nombre: String): void
+  ~ calcularEdad(): int
+  + obtenerGenero(): String
+}
+
+package "Paquete de practica" #DDDDDD {
+  Persona <|-- Clase10
+}
+
+package nombre.paquete.proyecto {
+  '// Relacion de herencia y composicion
+Clase1 "0..*" <|-- "0..1*" Clase2
+Clase1 --* Clase2
+
+'// Relacion de agregacion y composicion
+Clase2 o-- Clase3
+Clase2 --* Clase3
+}
+
+Class Clase1{}
+Abstract Class Clase2{}
+Interface Clase3{}
+Enum Clase4{}
+Annotation Clase5{}
+Exception Clase6{}
+Entity Clase7{}
+Stereotype Clase8{}
+Metaclass Clase9{}
+Class Clase10{}
+circle circulo
+diamond diamante
+
+
+
+Clase3 <|-- Clase4
+Clase3 --* Clase4
+
+Clase4 <|-- Clase5
+Clase4 --* Clase5
+
+Clase5 <|-- Clase6
+Clase5 --* Clase6
+
+note "Asi asignamos una nota a una clase." as PersonaNote
+PersonaNote -- Persona
+
+@enduml

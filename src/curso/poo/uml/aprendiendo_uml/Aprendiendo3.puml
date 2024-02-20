@@ -1,0 +1,57 @@
+@startuml
+
+class Persona {
+  - id: int
+  # nombre: String
+  ~ edad: int
+
+  + obtenerId(): int
+  + establecerNombre(nombre: String): void
+  ~ calcularEdad(): int
+}
+'// comentario
+class Estudiante {
+  - matricula: int
+  - calificaciones: List<int>
+  # programaEstudio: String
+
+  + obtenerMatricula(): int
+  + obtenerCalificaciones(): List<int>
+  ~ obtenerPromedio(): double
+}
+
+class Profesor {
+  - empleadoId: int
+  - especialidad: String
+  # salario: double
+
+  + obtenerEmpleadoId(): int
+  + obtenerEspecialidad(): String
+  - calcularBonificacion(): double
+}
+
+class Curso {
+  - codigo: String
+  - nombre: String
+
+  + obtenerCodigo(): String
+  + obtenerNombre(): String
+}
+
+Persona --|> Estudiante : Herencia
+Persona --|> Profesor : Herencia
+Estudiante -- Profesor : Asociación
+Estudiante -- Curso : Asociación
+Profesor --|> Curso : Agregación
+
+note "Clase base para personas" as PersonaNote
+note "Representa a un estudiante con matrícula y calificaciones" as EstudianteNote
+note "Representa a un profesor con un ID de empleado y especialidad" as ProfesorNote
+note "Representa un curso con código y nombre" as CursoNote
+
+PersonaNote .. Persona
+EstudianteNote .. Estudiante
+ProfesorNote .. Profesor
+CursoNote .. Curso
+
+@enduml

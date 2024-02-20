@@ -1,0 +1,71 @@
+@startuml
+
+class Persona {
+  '// - PRIVADO / + PUBLICO / ~ PAQUETE / # PROTEGIDO
+  - id: int
+  # nombre: String
+  ~ edad: int
+  - genero: String
+
+  + obtenerId(): int
+  + establecerNombre(nombre: String): void
+  ~ calcularEdad(): int
+  + obtenerGenero(): String
+}
+
+class Estudiante {}
+class Empleado {}
+class Profesor {}
+class Curso {}
+class Empresa {}
+
+'// Asociación
+Persona -- Estudiante
+Estudiante -- Empleado
+Empleado -- Profesor
+
+'// Agregación
+Persona o-- Estudiante
+Persona o-- Empleado
+
+'// Composición
+Persona *-- Profesor
+
+'// Herencia
+class Estudiante2 {}
+class Empleado2 {}
+
+Estudiante2 --|> Persona
+Empleado2 --|> Persona
+
+'// Realización
+class Curso2 {}
+class Profesor2 {}
+
+Profesor2 --|> Curso2
+
+'// Dependencia
+class ServicioExterno {}
+Persona --> ServicioExterno
+
+'// Asociación de Composición
+class Empresa2 {
+  *--o Empleado3
+}
+
+'// Asociación Bidireccional
+class Cliente {}
+class Cuenta {}
+
+Cliente -- Cuenta
+Cuenta -- Cliente
+
+'// Asociación Anidada
+class Externa {
+  --> Interna
+}
+
+note "Asi asignamos una nota a una clase." as PersonaNote
+PersonaNote -- Persona
+
+@enduml

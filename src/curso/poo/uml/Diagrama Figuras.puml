@@ -1,0 +1,30 @@
+@startuml
+
+class Shape{
+    - enum Color {AZUL, ROJO, VERDE}
+    - Color color
+
+    + Shape(Color color)
+    + Shape()
+}
+
+class Rectangle{
+    - double lenght
+    - double width
+
+    + Rectangle(double lenght, double width, Color azul)
+}
+
+class Circulo{
+    -double radio
+
+    +Circulo(double radio, Shape.Color color)
+}
+
+note left of Shape : "Rectangle y Circulo heredan de Shape y podran hacer \n uso de sus atributos. Circulo llama al constructor de \n Shape con un parametro y Rectangle al constructor de \n Shape sin parametro, el que genera color random." as Note1
+
+Shape <|-- Rectangle
+Shape <|-- Circulo
+
+
+@enduml

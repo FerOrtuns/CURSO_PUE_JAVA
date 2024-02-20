@@ -1,0 +1,69 @@
+@startuml
+
+class Track{
+    -String title
+    -List<String> artist
+    -List<String> genre
+    -LocalDate releaseDate
+    -String url
+    -int seconds
+}
+
+class Album{
+    -Title
+    -Artist
+    -YearReleased
+    -Genre
+    -SongList
+    -AlbumCovers
+}
+
+class Artist{
+    -Name
+    -Genre
+    -AlbumList
+    -SongList
+    -Biography
+    -ImageArtist
+}
+
+class PlayList{
+   -title
+   -description
+   -List<String> tracks
+   -List<String> comments
+   -LocalDate creationDate
+}
+
+class User{
+   -UserName
+   -Email address
+   -Password
+   -FavouriteSongsList
+   -FavoriteAlbumsList -FavoriteAlbumsList
+   -FollowedArtistsList
+   -PlaylistsCreated
+   -PrivacySettings
+}
+
+class Comment{
+   -UserComment
+   -CommentTimeDate
+   -CommentText
+   -Rating
+}
+
+class Rating{
+   -UserRaisedRating
+   -Rating
+   -SongAlbumArtistRated
+}
+
+Album --* Track
+Album --* Artist
+User --> PlayList
+User --> Comment
+User --> Rating
+PlayList --* Album
+
+@enduml

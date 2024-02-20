@@ -1,0 +1,35 @@
+@startuml
+
+Class Cancion{
+    - nombre : String
+    - fechaCreacion : LocalDate
+}
+
+Class Album{
+    - nombre : String
+    - fechaCreacion : LocalDate
+}
+
+Class PlayList{
+    - nombre : String
+    - fechaCreacion : LocalDate
+
+    + esPublica : boolean
+}
+
+Class Genero{
+    - nombre : String
+}
+
+Class Artista{
+    - nombre : String
+}
+
+Cancion "0.*" -- "1.*" Genero
+Cancion "0.*" --o "0.*" PlayList
+Cancion "1.*" --* "0.*" Album
+Cancion "1.*" --* "1.*" Artista
+
+Artista "1.*" -- "0.*" Album
+
+@enduml

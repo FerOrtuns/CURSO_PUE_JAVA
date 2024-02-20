@@ -1,0 +1,61 @@
+RELACIONES UML PARA PLANTEXT:
+
+Class01 <|-- Class02 : Extension
+Class 001 "1" *-- "many" Class002 : contains (one to many)
+Class15 ..> Class16 : Unidirectional Dependency
+Class07 .. Class08 : Dependency
+Class13 --> Class14 : Unidirectional Association
+Class09 -- Class10 : Association (uso)
+Class21 -- Class21 : Reflexive Association
+Class05 o-- Class06 : Aggregation
+Class19 *--> Class20 : Unidirectional Composition
+Class03 *-- Class04 : Composition
+Class11 <|.. Class12 : Implements
+
+Asociación (Association):
+Representa una conexión entre dos clases.
+Puede ser unidireccional o bidireccional.
+Puede tener multiplicidades para indicar la cantidad de instancias relacionadas.
+
+
+Agregación (Aggregation):
+Indica una relación de tipo "todo-parte".
+La parte puede existir independientemente del todo.
+
+
+Composición (Composition):
+Es una agregación más fuerte, donde la parte no puede existir sin el todo.
+Se representa con un diamante relleno.
+
+
+Herencia (Inheritance/Generalization):
+Indica una relación de "es-un" entre una clase base (superclase) y una clase derivada (subclase).
+
+
+Realización (Realization/Implementation):
+Indica que una clase implementa una interfaz o realiza ciertos comportamientos especificados por una interfaz.
+
+
+Dependencia (Dependency):
+Indica que un cambio en una clase podría afectar a otra clase.
+Puede ser una dependencia simple o una dependencia de uso.
+
+
+
+Asociación de Composición (Composite Association):
+Similar a la composición, pero se utiliza para indicar una relación de "todo-parte" en un contexto más específico.
+
+
+
+Asociación Bidireccional (Bidirectional Association):
+Indica una relación en la que ambas clases pueden acceder entre sí.
+
+
+
+Asociación Anidada (Nested Association):
+Representa una relación anidada entre clases.
+
+
+
+Asociación Reflexiva (Reflexive Association):
+Indica una relación de una clase consigo misma.

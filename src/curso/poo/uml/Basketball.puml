@@ -1,0 +1,40 @@
+@startuml
+
+class Jugador {
+    - nombre: String
+    - apellido: String
+    - fechaNacimiento: LocalDate
+    - altura : int
+    - lateralidad: String
+}
+
+enum Posicion {
+    base
+    escolta
+    alero
+    alero_pivot
+    pivot
+}
+
+class Equipo {
+    - nombre : String
+    - ciudad : String
+    - escudo : String
+    - presupuesto : double
+}
+
+class Partido {
+    - fechaInicio : LocalDateTime
+    - localizacion : String
+    - puntosLocal : int
+    - puntosVisit : int
+    - fechaFin : LocalDateTime
+}
+
+Jugador --o Posicion: tiene
+Jugador "0..1" o-- "0..*" Equipo: pertenece a
+Partido "0..1 " -- "0..1 " Equipo: local
+Partido " 0..1" -- " 0..1" Equipo: visitante
+Partido "0..*" -- "0..*" Jugador: participa en
+
+@enduml
